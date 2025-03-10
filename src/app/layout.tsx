@@ -22,9 +22,7 @@ export default function RootLayout({
 		<html lang="en" className={`${futura.className} antialiased`}>
 			<body className="flex flex-col min-h-svh flex-nowrap relative">
 				<Navbar />
-				<main className="flex-1 flex flex-col items-center justify-center">
-					{children}
-				</main>
+				<main>{children}</main>
 			</body>
 		</html>
 	);

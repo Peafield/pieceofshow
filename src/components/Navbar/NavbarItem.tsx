@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { Children } from "react";
 import PortfolioNavbar from "./PortfolioNavbar";
 
 type NavbarItemProps = {

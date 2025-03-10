@@ -13,7 +13,7 @@ const Navbar = () => {
 	];
 
 	return (
-		<nav className="stick top-0 mx-24 h-72 flex items-center justify-right">
+		<nav className="sticky z-50 bg-white top-0 mx-24 h-72 flex items-center justify-right">
 			<div className="flex flex-col items-start">
 				{/* Main items */}
 				<ul className="flex items-center justify-center">
