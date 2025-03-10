@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "@/components/Navbar/Navbar";
 
-const nunito = localFont({
-	src: "./fonts/Nunito-VariableFont_wght.ttf",
+const futura = localFont({
+	src: "./fonts/futura medium bt.ttf",
 	display: "swap",
 });
 
@@ -18,8 +19,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${nunito.className} antialiased`}>
+		<html lang="en" className={`${futura.className} antialiased`}>
 			<body className="flex flex-col min-h-svh flex-nowrap relative">
+				<Navbar />
 				<main className="flex-1 flex flex-col items-center justify-center">
 					{children}
 				</main>

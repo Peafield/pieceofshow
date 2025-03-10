@@ -6,7 +6,7 @@
 } */
 
 @theme inline {
-  --font-sans: var(--font-nunito);
+  --font-sans: var(--font-futura);
 }
 
 /* @media (prefers-color-scheme: dark) {
