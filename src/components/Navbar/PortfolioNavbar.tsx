@@ -1,22 +1,13 @@
+import { portFolioItems } from "@/constants/constants";
 import type { NavbarItemType } from "@/types/types";
 import NavbarItem from "./NavbarItem";
 
 const PortfolioNavbar = () => {
-	const portFolioItems: NavbarItemType[] = [
-		{ title: "BASTARDS", isSelected: false },
-		{ title: "COLORS", isSelected: false },
-		{ title: "VECTORS", isSelected: false },
-		{ title: "RETREATS", isSelected: false },
-		{ title: "BLACKFLOWERS", isSelected: false },
-		{ title: "PORTRAITS", isSelected: false },
-		{ title: "EDITORIALS", isSelected: false },
-	];
 	return (
 		<ul className="absolute hidden">
-			{portFolioItems.map((item, index) => (
+			{portFolioItems.map((item) => (
 				<NavbarItem
-					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-					key={index}
+					key={item.title}
 					title={item.title}
 					isSelected={item.isSelected}
 				/>

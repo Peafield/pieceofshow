@@ -1,4 +1,4 @@
-import type { PortfolioItem } from "@/types/types";
+import type { CollectionType, PortfolioItem } from "@/types/types";
 import PortfolioItemBoxes from "./PortfolioItemBoxes/PortfolioItemBoxes";
 
 const Home = () => {
@@ -6,7 +6,7 @@ const Home = () => {
 
 	//   TODO: temp, must delete
 	for (let i = 0; i < 25; i++) {
-		const collectionName: string =
+		const collectionName: CollectionType =
 			i % 5 === 0
 				? "BASTARDS"
 				: i % 3 === 0

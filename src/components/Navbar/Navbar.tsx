@@ -1,28 +1,22 @@
 "use client";
 
-import type { NavbarItemType } from "@/types/types";
+import { MainNavbarItems } from "@/constants/constants";
+import { useUiStore } from "@/store/store";
 import NavbarItem from "./NavbarItem";
 
 const Navbar = () => {
-	const mainItems: NavbarItemType[] = [
-		{ title: "PIECEOFSHOW", isSelected: true },
-		{ title: "IMAGES", isSelected: false },
-		{ title: "ABOUT", isSelected: false },
-		{ title: "SHOP", isSelected: false },
-		{ title: "CONTACT", isSelected: false },
-	];
+	const selectedNavbarItem = useUiStore((state) => state.selectedNavbarItem);
 
 	return (
 		<nav className="sticky z-50 bg-white top-0 mx-24 h-72 flex items-center justify-right">
 			<div className="flex flex-col items-start">
 				{/* Main items */}
 				<ul className="flex items-center justify-center">
-					{mainItems.map((item, index) => (
+					{MainNavbarItems.map((item) => (
 						<NavbarItem
-							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-							key={index}
+							key={item.title}
 							title={item.title}
-							isSelected={item.isSelected}
+							isSelected={selectedNavbarItem.title === item.title}
 						/>
 					))}
 				</ul>
