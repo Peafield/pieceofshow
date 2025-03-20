@@ -1,5 +1,6 @@
 import { useUiStore } from "@/store/store";
 import clsx from "clsx";
+import { AnimatePresence } from "motion/react";
 import PortfolioNavbar from "./PortfolioNavbar";
 
 type NavbarItemProps = {
@@ -8,23 +9,22 @@ type NavbarItemProps = {
 };
 
 const NavbarItem = ({ title, isSelected }: NavbarItemProps) => {
-	const setSelectedNavbarItem = useUiStore(
-		(state) => state.setSelectedNavbarItem,
-	);
-	//   TODO: Grace animation between selection, fade out fade in.
-	// TODO: When cursor not on anything, pieceofshow is selected.,
+	const { isImagesExpanded, setSelectedNavbarItem } = useUiStore();
 	return (
 		<li
 			onMouseEnter={() => setSelectedNavbarItem(title)}
 			className={clsx(
-				"tracking-[3.5px] font-light text-gray-300 relative cursor-pointer",
+				"tracking-[3.5px] font-light text-gray-300 relative cursor-pointer transition duration-700 ease-in-out",
 				{
-					"text-gray-400": isSelected,
+					"text-gray-400":
+						isSelected || (title === "IMAGES" && isImagesExpanded),
 				},
 			)}
 		>
 			{title}
-			{title === "IMAGES" && <PortfolioNavbar />}
+			<AnimatePresence>
+				{title === "IMAGES" && isImagesExpanded && <PortfolioNavbar />}
+			</AnimatePresence>
 		</li>
 	);
 };

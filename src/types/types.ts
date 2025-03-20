@@ -41,6 +41,8 @@ export const UISchema = z.object({
 	selectedNavbarItem: MainNavbarItemSchema,
 	selectedCollectionType: CollectionTypeSchema.or(z.string()),
 	setSelectedNavbarItem: z.function().args(z.string()),
+	isImagesExpanded: z.boolean(),
+	setIsImagesExpanded: z.function().args(z.boolean()),
 });
 
 export type Ui = z.infer<typeof UISchema>;
