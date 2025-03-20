@@ -22,10 +22,12 @@ const Home = () => {
 		portfolioItems.push(item);
 	}
 
+	// TODO: Highlight all images of the same collection when clicking on one image
+
 	return (
 		<section className="w-full">
 			<section className="grid grid-cols-5 gap-2 mx-24">
-				{portfolioItems.map((item, i) => (
+				{portfolioItems.map((item) => (
 					<PortfolioItemBoxes
 						key={item.id}
 						src={item.src}
