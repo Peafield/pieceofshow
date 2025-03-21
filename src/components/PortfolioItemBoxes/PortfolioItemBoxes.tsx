@@ -1,5 +1,6 @@
 "use client";
 
+import { useDebounce } from "@/hooks/useDebounce";
 import { useUiStore } from "@/store/store";
 import { CollectionTypeSchema } from "@/types/types";
 import clsx from "clsx";
@@ -13,16 +14,21 @@ const PortfolioItemBoxes = ({
 	collectionName,
 	src,
 }: PortfolioItemBoxesProps) => {
-	const { selectedNavbarItem } = useUiStore();
+	const { selectedNavbarItem, setSelectedNavbarItem } = useUiStore();
 	const show =
 		selectedNavbarItem.title !== collectionName &&
 		CollectionTypeSchema.safeParse(selectedNavbarItem.title).success;
+
 	return (
 		<div
-			className={clsx("aspect-3/2 transition duration-700 ease-in-out", {
-				"opacity-20": show,
-			})}
+			className={clsx(
+				"aspect-3/2 transition duration-700 ease-in-out cursor-pointer",
+				{
+					"opacity-20": show,
+				},
+			)}
 			data-collection-name={collectionName}
+			onMouseEnter={() => setSelectedNavbarItem(collectionName)}
 		>
 			<img
 				src={src}

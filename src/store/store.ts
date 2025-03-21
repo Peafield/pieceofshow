@@ -10,7 +10,6 @@ export const useUiStore = create<Ui>()(
 				title: "PIECEOFSHOW",
 				isSelected: true,
 			},
-			selectedCollectionType: "",
 			isImagesExpanded: false,
 			setIsImagesExpanded: (value: boolean) => {
 				set((state) => {
