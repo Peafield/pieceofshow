@@ -42,6 +42,13 @@ export const UISchema = z.object({
 	setSelectedNavbarItem: z.function().args(z.string()),
 	isImagesExpanded: z.boolean(),
 	setIsImagesExpanded: z.function().args(z.boolean()),
+	isHoveringANavbarItem: z.boolean(),
+	setIsHoveringANavbarItem: z.function().args(z.boolean()),
+	isHoveringAPortfolioItem: z.boolean(),
+	setIsHoveringAPortfolioItem: z.function().args(z.boolean()),
+	//   TODO: Add this back when dealing with indiviual images
+	//   selectedPortfolioItem: PortfolioItemSchema.partial(),
+	//   setSelectedPortfolioItem: z.function().args(z.number()),
 });
 
 export type Ui = z.infer<typeof UISchema>;

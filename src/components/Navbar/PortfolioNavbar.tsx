@@ -7,9 +7,9 @@ const PortfolioNavbar = () => {
 	const { selectedNavbarItem } = useUiStore();
 	return (
 		<motion.ul
-			initial={{ opacity: 0, y: 10, height: 0 }}
-			animate={{ opacity: 1, y: 0, height: "auto" }}
-			exit={{ opacity: 0, y: 10, height: 0 }}
+			initial={{ opacity: 0, pointerEvents: "none" }}
+			animate={{ opacity: 1, pointerEvents: "auto" }}
+			exit={{ opacity: 0, pointerEvents: "none" }}
 			transition={{ duration: 0.3, ease: "easeInOut" }}
 			className="absolute flex items-center justify-center"
 		>

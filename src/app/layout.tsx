@@ -1,7 +1,7 @@
+import Navbar from "@/components/Navbar/Navbar";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "@/components/Navbar/Navbar";
 
 const futura = localFont({
 	src: "./fonts/futura medium bt.ttf",

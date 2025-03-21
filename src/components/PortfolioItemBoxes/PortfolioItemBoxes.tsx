@@ -1,23 +1,43 @@
 "use client";
 
-import { useDebounce } from "@/hooks/useDebounce";
 import { useUiStore } from "@/store/store";
 import { CollectionTypeSchema } from "@/types/types";
 import clsx from "clsx";
 
 interface PortfolioItemBoxesProps {
+	imageId: number;
 	collectionName: string;
 	src: string;
 }
 
 const PortfolioItemBoxes = ({
+	imageId,
 	collectionName,
 	src,
 }: PortfolioItemBoxesProps) => {
-	const { selectedNavbarItem, setSelectedNavbarItem } = useUiStore();
+	const {
+		selectedNavbarItem,
+		setSelectedNavbarItem,
+		setIsHoveringAPortfolioItem,
+	} = useUiStore();
 	const show =
 		selectedNavbarItem.title !== collectionName &&
 		CollectionTypeSchema.safeParse(selectedNavbarItem.title).success;
+
+	const handleMouseEnter = () => {
+		setIsHoveringAPortfolioItem(true);
+		setSelectedNavbarItem(collectionName);
+	};
+
+	const handleMouseLeave = () => {
+		setIsHoveringAPortfolioItem(false);
+		const timeoutId = setTimeout(() => {
+			if (!useUiStore.getState().isHoveringAPortfolioItem) {
+				setSelectedNavbarItem("PIECEOFSHOW");
+			}
+		}, 2000);
+		return () => clearTimeout(timeoutId);
+	};
 
 	return (
 		<div
@@ -28,7 +48,8 @@ const PortfolioItemBoxes = ({
 				},
 			)}
 			data-collection-name={collectionName}
-			onMouseEnter={() => setSelectedNavbarItem(collectionName)}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
 		>
 			<img
 				src={src}

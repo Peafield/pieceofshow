@@ -11,6 +11,12 @@ export const useUiStore = create<Ui>()(
 				isSelected: true,
 			},
 			isImagesExpanded: false,
+			isHoveringANavbarItem: false,
+			isHoveringAPortfolioItem: false,
+			setIsHoveringANavbarItem: (value: boolean) =>
+				set((state) => {
+					state.isHoveringANavbarItem = value;
+				}),
 			setIsImagesExpanded: (value: boolean) => {
 				set((state) => {
 					state.isImagesExpanded = value;
@@ -30,6 +36,10 @@ export const useUiStore = create<Ui>()(
 					} else {
 						state.isImagesExpanded = false;
 					}
+				}),
+			setIsHoveringAPortfolioItem: (value: boolean) =>
+				set((state) => {
+					state.isHoveringAPortfolioItem = value;
 				}),
 		})),
 	),
